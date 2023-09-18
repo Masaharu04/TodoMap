@@ -54,7 +54,7 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
                     annotation.subtitle = placemark.placemark.title
                     self.testMapView.addAnnotation(annotation)
                 
-                    pos.append(annotation.title)
+                 //   pos.append(annotation.title)
                     
                 } else {
                     //エラー
