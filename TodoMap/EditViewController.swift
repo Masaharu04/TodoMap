@@ -15,6 +15,9 @@ class EditViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func back() {
+        self.dismiss(animated: true)
+    }
 
     /*
     // MARK: - Navigation

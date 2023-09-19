@@ -16,6 +16,8 @@
 		D0885DD82AB8309400F9F2E1 /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DD72AB8309400F9F2E1 /* ShowViewController.swift */; };
 		D0885DDA2AB830AA00F9F2E1 /* EditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DD92AB830AA00F9F2E1 /* EditViewController.swift */; };
 		D0885DDC2AB830BC00F9F2E1 /* addMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */; };
+		D0885DFE2AB9EEED00F9F2E1 /* CustomPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */; };
+		D0885E032AB9EF4E00F9F2E1 /* CustomPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0885E022AB9EF4E00F9F2E1 /* CustomPinView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		D0885DD72AB8309400F9F2E1 /* ShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewController.swift; sourceTree = "<group>"; };
 		D0885DD92AB830AA00F9F2E1 /* EditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditViewController.swift; sourceTree = "<group>"; };
 		D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMapViewController.swift; sourceTree = "<group>"; };
+		D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinView.swift; sourceTree = "<group>"; };
+		D0885E022AB9EF4E00F9F2E1 /* CustomPinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPinView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +76,8 @@
 				D0885DD72AB8309400F9F2E1 /* ShowViewController.swift */,
 				D0885DD92AB830AA00F9F2E1 /* EditViewController.swift */,
 				D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */,
+				D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */,
+				D0885E022AB9EF4E00F9F2E1 /* CustomPinView.xib */,
 			);
 			path = TodoMap;
 			sourceTree = "<group>";
@@ -137,6 +143,7 @@
 				D0885DAE2AB75F3800F9F2E1 /* LaunchScreen.storyboard in Resources */,
 				D0885DAB2AB75F3800F9F2E1 /* Assets.xcassets in Resources */,
 				D0885DA92AB75F3600F9F2E1 /* Main.storyboard in Resources */,
+				D0885E032AB9EF4E00F9F2E1 /* CustomPinView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,6 +157,7 @@
 				D0885DDA2AB830AA00F9F2E1 /* EditViewController.swift in Sources */,
 				D0885DDC2AB830BC00F9F2E1 /* addMapViewController.swift in Sources */,
 				D0885DA62AB75F3600F9F2E1 /* HomeController.swift in Sources */,
+				D0885DFE2AB9EEED00F9F2E1 /* CustomPinView.swift in Sources */,
 				D0885DA22AB75F3600F9F2E1 /* AppDelegate.swift in Sources */,
 				D0885DA42AB75F3600F9F2E1 /* SceneDelegate.swift in Sources */,
 				D0885DD82AB8309400F9F2E1 /* ShowViewController.swift in Sources */,
