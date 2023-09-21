@@ -9,20 +9,30 @@ import UIKit
 import MapKit
 import RealmSwift
 
+
+protocol CatchProtocol{
+    func catchData(
+        selectedPlaceName: String?,
+        selectedPlaceCoordinate: CLLocationCoordinate2D?
+    )
+}
+
 class addMapViewController: UIViewController ,UISearchBarDelegate{
     
     let realm = try! Realm()
     
-    @IBOutlet var testSearchBar: UISearchBar!
+    @IBOutlet weak var testSearchBar: UISearchBar!
     @IBOutlet weak var testMapView: MKMapView!
-    @IBOutlet var posNameLabel: UILabel!
+    @IBOutlet weak var posNameLabel: UILabel!
+
     
     var selectedPlaceName: String?
     var selectedPlaceCoordinate: CLLocationCoordinate2D?
     
     var testManager:CLLocationManager = CLLocationManager()
     
-
+    /// 前の画面にデータを送るためのやつ
+    var delegate:CatchProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,18 +53,12 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     }
     
     @IBAction func save() {
-       // let item = addMapItem()
-       // item.maptitle = selectedPlaceName ?? ""
+        selectedPlaceName = "Some Place Name" // データを設定
+        selectedPlaceCoordinate = CLLocationCoordinate2D(latitude: 35.0, longitude: 139.0) // データを設定
         
-        performSegue(withIdentifier: "pos", sender: self)
-     /*
-        if let coordinate = selectedPlaceCoordinate {
-            // CLLocationCoordinate2D? を文字列に変換して代入
-            let coordinateString = "\(coordinate.latitude), \(coordinate.longitude)"
-            item.posLatitude = coordinateString
-        }
-        creatItem(item: item)
-        */
+        // ここで前の画面にデータを渡す
+        delegate?.catchData(selectedPlaceName: selectedPlaceName, selectedPlaceCoordinate: selectedPlaceCoordinate)
+        // 画面を閉じる
         self.dismiss(animated: true)
     }
       
@@ -110,24 +114,6 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
         }
     }
 
-
-    
-
-    //検索ボタン押下時の呼び出しメソッド
-
-      //  posNameLabel.text = String(pos)
-        
-        /*
-         // MARK: - Navigation
-         
-         // In a storyboard-based application, you will often want to do a little preparation before navigation
-         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-         // Get the new view controller using segue.destination.
-         // Pass the selected object to the new view controller.
-         }
-         */
-        
-    
 }
 
 extension addMapViewController: UISearchControllerDelegate {

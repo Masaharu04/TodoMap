@@ -7,25 +7,34 @@
 
 import UIKit
 import RealmSwift
-class EditViewController: UIViewController {
-    
-    
+import CoreLocation
+
+
+class EditViewController: UIViewController, CatchProtocol {
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var ritememo: UITextView!
     
+    @objc dynamic var id : Int = 0
+  
+
+    var selectedPlaceName: String?
+    var selectedPlaceCoordinate: CLLocationCoordinate2D?
+    
     let realm = try! Realm()
        
-       override func viewDidLoad() {
-           super.viewDidLoad()
+   override func viewDidLoad() {
+       super.viewDidLoad()
 
-           // DatePickerの設定
-           datePicker.datePickerMode = .dateAndTime // 日付と時刻の選択を可能にします
-           datePicker.calendar = Calendar.current // 現在のカレンダーを使用します
-           datePicker.locale = Locale(identifier: "ja_JP") // ロケールを日本に設定します（日本のカレンダー形式に合わせます）
-       }
-    
+       // DatePickerの設定
+       datePicker.datePickerMode = .dateAndTime // 日付と時刻の選択を可能にします
+       
+       datePicker.calendar = Calendar.current // 現在のカレンダーを使用します
+       
+       datePicker.locale = Locale(identifier: "ja_JP") // ロケールを日本に設定します（日本のカレンダー形式に合わせます）
+   }
+
     @IBAction func back() {
         self.dismiss(animated: true)
     }
@@ -34,19 +43,31 @@ class EditViewController: UIViewController {
         let item = addMapItem()
         item.title = titleTextField.text ?? ""
        
-        
+        item.maptitle = selectedPlaceName ?? ""
+        if let coordinate = selectedPlaceCoordinate {
+                    // CLLocationCoordinate2D? を文字列に変換して代入
+                    let coordinateString = "\(coordinate.latitude), \(coordinate.longitude)"
+                    item.posLatitude = coordinateString
+                }
         // UIDatePickerから日付を取得し、Stringに変換
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = "yyyy-MM-dd"
         item.date = dateFormatter.string(from: datePicker.date)
         
         item.memo = ritememo.text ?? ""
         
         createItem(item: item) // データをRealmに保存
+        
+      
         self.dismiss(animated: true)
+        
+        print(selectedPlaceName)
+        
+        
+        
     }
 
-    
+
     func createItem(item: addMapItem) {
         do {
             try realm.write {
@@ -56,6 +77,29 @@ class EditViewController: UIViewController {
             print("データの保存に失敗しました: \(error)")
         }
     }
+    
+    // 画面遷移する時に渡すデータ
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! addMapViewController
+        
+        // 遷移先からデータをもらう関数の集合体
+        destinationVC.delegate = self
+
+    }
+    
+    // 画面遷移先からデータをもらう関数
+    func catchData(
+        selectedPlaceName: String?,
+        selectedPlaceCoordinate: CLLocationCoordinate2D?
+    ){
+        self.selectedPlaceName = selectedPlaceName
+        self.selectedPlaceCoordinate = selectedPlaceCoordinate
+        
+        print(selectedPlaceName ?? "")
+        print("lat" + String(selectedPlaceCoordinate?.latitude ?? 0) + "lon" + String(selectedPlaceCoordinate?.longitude ?? 0))
+        
+    }
+    
 
     
     /*

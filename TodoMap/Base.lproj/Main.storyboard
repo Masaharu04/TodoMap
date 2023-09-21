@@ -29,11 +29,11 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="OxF-Fq-oQP" kind="presentation" identifier="toedit" id="ab9-j6-N5A"/>
+                                    <segue destination="OxF-Fq-oQP" kind="presentation" identifier="toedit" modalPresentationStyle="fullScreen" id="ab9-j6-N5A"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-xa-Ep9">
-                                <rect key="frame" x="175" y="210" width="42" height="21"/>
+                                <rect key="frame" x="52" y="757" width="120" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -45,12 +45,12 @@
                     </view>
                     <connections>
                         <outlet property="homeMapView" destination="AlW-pL-Z9j" id="LJv-KX-iQq"/>
-                        <outlet property="testLabel" destination="1TJ-xa-Ep9" id="07f-iA-XsZ"/>
+                        <outlet property="testLabel" destination="1TJ-xa-Ep9" id="fGQ-KE-cFP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135.1145038167939" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1181" y="522"/>
         </scene>
         <!--Show View Controller-->
         <scene sceneID="AjK-cC-VF7">
@@ -62,17 +62,18 @@
                         <viewLayoutGuide key="safeArea" id="oBJ-kK-n0Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="1dm-dc-ih5"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rG3-m9-g09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1088" y="-235"/>
+            <point key="canvasLocation" x="4156" y="499"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="C8m-XB-kmE">
             <objects>
                 <viewController id="OxF-Fq-oQP" customClass="EditViewController" customModule="TodoMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RsV-oa-LZK">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eTY-Wm-7o9">
@@ -88,18 +89,17 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <segue destination="57C-jW-NXZ" kind="show" id="J9f-U4-hUe"/>
+                                    <segue destination="57C-jW-NXZ" kind="presentation" id="w5m-we-EsR"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFi-JN-4Ci">
                                 <rect key="frame" x="16" y="303" width="358" height="48"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7J8-2b-DGu">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="メモ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7J8-2b-DGu">
                                 <rect key="frame" x="34" y="401" width="324" height="427"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -111,7 +111,7 @@
                                     <navigationItem title="Title" id="UCi-bd-B94">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="jfA-10-l0V">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="OHw-fV-LPd">
-                                                <rect key="frame" x="16" y="10.666666666666664" width="87" height="35"/>
+                                                <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="戻る"/>
@@ -121,8 +121,8 @@
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="tQc-WM-Lfl">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="eHS-5l-2Fs">
-                                                <rect key="frame" x="290" y="10.666666666666664" width="87" height="35"/>
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="eHS-5l-2Fs">
+                                                <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="保存"/>
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfi-rm-c07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1089" y="523"/>
+            <point key="canvasLocation" x="2347" y="522"/>
         </scene>
         <!--Add Map View Controller-->
         <scene sceneID="paZ-CF-f40">
@@ -168,7 +168,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="戻る"/>
                                                 <connections>
-                                                    <action selector="back" destination="57C-jW-NXZ" eventType="touchUpInside" id="fCU-sD-xrd"/>
+                                                    <action selector="back" destination="57C-jW-NXZ" eventType="touchUpInside" id="o8w-wA-e27"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -179,7 +179,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="保存"/>
                                                 <connections>
-                                                    <action selector="save" destination="57C-jW-NXZ" eventType="touchUpInside" id="rLs-dE-hff"/>
+                                                    <action selector="save" destination="57C-jW-NXZ" eventType="touchUpInside" id="inB-pH-KZo"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -213,20 +213,19 @@
                     </view>
                     <navigationItem key="navigationItem" id="SzD-2Q-EOB"/>
                     <connections>
-                        <outlet property="posNameLabel" destination="pVi-kI-c6I" id="RrU-W0-1bw"/>
-                        <outlet property="testMapView" destination="niF-Qj-X5a" id="Xtq-J7-uRM"/>
-                        <outlet property="testSearchBar" destination="pe0-oG-pvA" id="agl-kC-HR8"/>
-                        <segue destination="OxF-Fq-oQP" kind="presentation" identifier="pos" id="r7a-AH-6zE"/>
+                        <outlet property="posNameLabel" destination="pVi-kI-c6I" id="hV8-fe-ugD"/>
+                        <outlet property="testMapView" destination="niF-Qj-X5a" id="e2A-10-SY8"/>
+                        <outlet property="testSearchBar" destination="pe0-oG-pvA" id="2EL-GL-Gtp"/>
+                        <segue destination="OxF-Fq-oQP" kind="presentation" identifier="posid" modalPresentationStyle="fullScreen" id="bYa-Gm-1m1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2X-rW-UuQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2189" y="810"/>
+            <point key="canvasLocation" x="3402" y="499"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="J9f-U4-hUe"/>
-        <segue reference="r7a-AH-6zE"/>
+        <segue reference="bYa-Gm-1m1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

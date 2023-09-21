@@ -11,8 +11,9 @@ import RealmSwift
 class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var homeMapView: MKMapView!
-    
     @IBOutlet var testLabel: UILabel!
+    
+    var labelText = ""
     
     let realm = try! Realm()
     var items: [addMapItem] = []
@@ -21,40 +22,48 @@ class ViewController: UIViewController, MKMapViewDelegate {
         super.viewDidLoad()
         
         items = read()
-       
-        if let firstItem = items.first {
-               let mapTitle = firstItem.maptitle
-               testLabel.text = mapTitle
-            
-                print(firstItem)
-           }
-        // 指定された座標を作成
-        let coordinate = CLLocationCoordinate2D(latitude: 34.7024, longitude: 135.4959)
-        
-        
-   /*
-        // アノテーションを作成
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        annotation.title = "ラーメンを食べにいく"
-        annotation.subtitle = "10月８日"
-        
-        // マップビューにアノテーションを追加
-        homeMapView.addAnnotation(annotation)
-      */
-        // マップビューの表示領域を指定された座標にズーム
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        let region = MKCoordinateRegion(center: coordinate, span: span)
-        homeMapView.setRegion(region, animated: true)
+
+        for item in items {
+            let mapTitle = item.maptitle
+            let posCoordinates = item.posLatitude.components(separatedBy: ",") // 緯度と経度を分割
+
+            // 緯度と経度をDouble型に変換
+            if posCoordinates.count == 2, let posLatitude = Double(posCoordinates[0]), let posLongitude = Double(posCoordinates[1]) {
+                // タイトルを取得
+                let title = item.title
+
+                // ピンをマップに追加
+                addPinToMap(latitude: posLatitude, longitude: posLongitude, title: title)
+                
+                testLabel.text = mapTitle
+            }
+        }
     }
+
+    
     
     func read() -> [addMapItem]{
         return Array(realm.objects(addMapItem.self))
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-     
+        
+    }
+    func addPinToMap(latitude: Double, longitude: Double, title: String) {
+        // 座標を作成
+        let coordinate = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+        
+        // ピンを作成
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = coordinate
+        annotation.title = title
+        
+        // マップビューにピンを追加
+        homeMapView.addAnnotation(annotation)
+        
+        // ピンを表示する領域を設定（必要に応じて調整）
+        let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
+        homeMapView.setRegion(region, animated: true)
     }
 
 }
-
