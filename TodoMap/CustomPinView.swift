@@ -7,7 +7,10 @@
 
 import UIKit
 
-class CustomPinView: UIView {
+final class CustomPinView: UIView {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
+    
+    
 }
+

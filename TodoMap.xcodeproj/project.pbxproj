@@ -18,6 +18,9 @@
 		D0885DDC2AB830BC00F9F2E1 /* addMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */; };
 		D0885DFE2AB9EEED00F9F2E1 /* CustomPinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */; };
 		D0885E032AB9EF4E00F9F2E1 /* CustomPinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0885E022AB9EF4E00F9F2E1 /* CustomPinView.xib */; };
+		D0885E062ABA832900F9F2E1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D0885E052ABA832900F9F2E1 /* Realm */; };
+		D0885E082ABA832900F9F2E1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D0885E072ABA832900F9F2E1 /* RealmSwift */; };
+		D0885E0A2ABA839600F9F2E1 /* addMapItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885E092ABA839600F9F2E1 /* addMapItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,7 @@
 		D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMapViewController.swift; sourceTree = "<group>"; };
 		D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPinView.swift; sourceTree = "<group>"; };
 		D0885E022AB9EF4E00F9F2E1 /* CustomPinView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomPinView.xib; sourceTree = "<group>"; };
+		D0885E092ABA839600F9F2E1 /* addMapItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addMapItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0885E082ABA832900F9F2E1 /* RealmSwift in Frameworks */,
+				D0885E062ABA832900F9F2E1 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +84,7 @@
 				D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */,
 				D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */,
 				D0885E022AB9EF4E00F9F2E1 /* CustomPinView.xib */,
+				D0885E092ABA839600F9F2E1 /* addMapItem.swift */,
 			);
 			path = TodoMap;
 			sourceTree = "<group>";
@@ -98,6 +105,10 @@
 			dependencies = (
 			);
 			name = TodoMap;
+			packageProductDependencies = (
+				D0885E052ABA832900F9F2E1 /* Realm */,
+				D0885E072ABA832900F9F2E1 /* RealmSwift */,
+			);
 			productName = TodoMap;
 			productReference = D0885D9E2AB75F3600F9F2E1 /* TodoMap.app */;
 			productType = "com.apple.product-type.application";
@@ -126,6 +137,9 @@
 				Base,
 			);
 			mainGroup = D0885D952AB75F3600F9F2E1;
+			packageReferences = (
+				D0885E042ABA832900F9F2E1 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = D0885D9F2AB75F3600F9F2E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -155,6 +169,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0885DDA2AB830AA00F9F2E1 /* EditViewController.swift in Sources */,
+				D0885E0A2ABA839600F9F2E1 /* addMapItem.swift in Sources */,
 				D0885DDC2AB830BC00F9F2E1 /* addMapViewController.swift in Sources */,
 				D0885DA62AB75F3600F9F2E1 /* HomeController.swift in Sources */,
 				D0885DFE2AB9EEED00F9F2E1 /* CustomPinView.swift in Sources */,
@@ -236,7 +251,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -290,7 +305,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -307,6 +322,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X492QDP79L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoMap/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -334,6 +350,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X492QDP79L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = TodoMap/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -376,6 +393,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0885E042ABA832900F9F2E1 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0885E052ABA832900F9F2E1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0885E042ABA832900F9F2E1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		D0885E072ABA832900F9F2E1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0885E042ABA832900F9F2E1 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0885D962AB75F3600F9F2E1 /* Project object */;
 }

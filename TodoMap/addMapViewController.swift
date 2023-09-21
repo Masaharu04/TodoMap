@@ -7,18 +7,22 @@
 
 import UIKit
 import MapKit
+import RealmSwift
 
 class addMapViewController: UIViewController ,UISearchBarDelegate{
+    
+    let realm = try! Realm()
     
     @IBOutlet var testSearchBar: UISearchBar!
     @IBOutlet weak var testMapView: MKMapView!
     @IBOutlet var posNameLabel: UILabel!
     
-  //  var pos:[String] = []
     var selectedPlaceName: String?
     var selectedPlaceCoordinate: CLLocationCoordinate2D?
     
     var testManager:CLLocationManager = CLLocationManager()
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,12 +35,30 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
         
         testSearchBar.delegate = self
         // Do any additional setup after loading the view.
+        
     }
     
     @IBAction func back(){
         self.dismiss(animated: true)
     }
     
+    @IBAction func save() {
+       // let item = addMapItem()
+       // item.maptitle = selectedPlaceName ?? ""
+        
+        performSegue(withIdentifier: "pos", sender: self)
+     /*
+        if let coordinate = selectedPlaceCoordinate {
+            // CLLocationCoordinate2D? を文字列に変換して代入
+            let coordinateString = "\(coordinate.latitude), \(coordinate.longitude)"
+            item.posLatitude = coordinateString
+        }
+        creatItem(item: item)
+        */
+        self.dismiss(animated: true)
+    }
+      
+
     func removeAnnotations() {
         let annotations = testMapView.annotations
         testMapView.removeAnnotations(annotations)
@@ -71,12 +93,23 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
                 // 選択された建物の名前と座標を変数に代入
                 self.selectedPlaceName = placemark.name
                 self.selectedPlaceCoordinate = placemark.coordinate
+                
+                // 選択された場所の名前をラベルに表示
+                self.posNameLabel.text = placemark.name
             } else {
                 // エラー
                 print(error)
             }
         }
     }
+    
+    func creatItem(item: addMapItem){
+        try! realm.write{
+            realm.add(item)
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+        }
+    }
+
 
     
 
@@ -95,4 +128,10 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
          */
         
     
+}
+
+extension addMapViewController: UISearchControllerDelegate {
+    func didPresentSearchController(_ searchController: UISearchController) {
+        searchController.searchBar.becomeFirstResponder()
+    }
 }

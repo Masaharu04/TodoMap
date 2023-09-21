@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -31,12 +32,20 @@
                                     <segue destination="OxF-Fq-oQP" kind="presentation" identifier="toedit" id="ab9-j6-N5A"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1TJ-xa-Ep9">
+                                <rect key="frame" x="175" y="210" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="homeMapView" destination="AlW-pL-Z9j" id="LJv-KX-iQq"/>
+                        <outlet property="testLabel" destination="1TJ-xa-Ep9" id="07f-iA-XsZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -117,6 +126,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="保存"/>
+                                                <connections>
+                                                    <action selector="save" destination="OxF-Fq-oQP" eventType="touchUpInside" id="4VR-eM-cGI"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -126,6 +138,11 @@
                         <viewLayoutGuide key="safeArea" id="KoW-Mg-nVv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="fFi-JN-4Ci" id="LZA-YK-glI"/>
+                        <outlet property="ritememo" destination="7J8-2b-DGu" id="5oW-ud-j7v"/>
+                        <outlet property="titleTextField" destination="eTY-Wm-7o9" id="8fN-xu-C6n"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfi-rm-c07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -143,13 +160,13 @@
                                 <rect key="frame" x="0.0" y="45" width="393" height="44"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
-                                    <navigationItem title="Title" id="jWB-c2-FUK">
+                                    <navigationItem title="行き先を追加しよう" id="jWB-c2-FUK">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="Fvd-HX-bhP">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="F5C-Nv-8rz">
-                                                <rect key="frame" x="16" y="11" width="87" height="34.333333333333336"/>
+                                                <rect key="frame" x="16" y="10.666666666666664" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
                                                 <connections>
                                                     <action selector="back" destination="57C-jW-NXZ" eventType="touchUpInside" id="fCU-sD-xrd"/>
                                                 </connections>
@@ -157,10 +174,13 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="Fin-Gu-4XI">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5Oj-Qi-VKS">
-                                                <rect key="frame" x="290" y="11" width="87" height="34.333333333333336"/>
+                                                <rect key="frame" x="290" y="10.666666666666664" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="保存"/>
+                                                <connections>
+                                                    <action selector="save" destination="57C-jW-NXZ" eventType="touchUpInside" id="rLs-dE-hff"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>
@@ -196,13 +216,18 @@
                         <outlet property="posNameLabel" destination="pVi-kI-c6I" id="RrU-W0-1bw"/>
                         <outlet property="testMapView" destination="niF-Qj-X5a" id="Xtq-J7-uRM"/>
                         <outlet property="testSearchBar" destination="pe0-oG-pvA" id="agl-kC-HR8"/>
+                        <segue destination="OxF-Fq-oQP" kind="presentation" identifier="pos" id="r7a-AH-6zE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2X-rW-UuQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1991.6030534351144" y="802.81690140845069"/>
+            <point key="canvasLocation" x="2189" y="810"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="J9f-U4-hUe"/>
+        <segue reference="r7a-AH-6zE"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
