@@ -10,6 +10,7 @@ import RealmSwift
 import CoreLocation
 
 
+
 class EditViewController: UIViewController, CatchProtocol {
     
     @IBOutlet var titleTextField: UITextField!
@@ -17,8 +18,7 @@ class EditViewController: UIViewController, CatchProtocol {
     @IBOutlet var ritememo: UITextView!
     
     @objc dynamic var id : Int = 0
-  
-
+    
     var selectedPlaceName: String?
     var selectedPlaceCoordinate: CLLocationCoordinate2D?
     
@@ -57,13 +57,9 @@ class EditViewController: UIViewController, CatchProtocol {
         item.memo = ritememo.text ?? ""
         
         createItem(item: item) // データをRealmに保存
-        
-      
         self.dismiss(animated: true)
         
         print(selectedPlaceName)
-        
-        
         
     }
 

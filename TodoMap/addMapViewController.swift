@@ -4,7 +4,7 @@
 //
 //  Created by 御前政喜 on 2023/09/18.
 //
-
+//マイン
 import UIKit
 import MapKit
 import RealmSwift
@@ -53,8 +53,8 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     }
     
     @IBAction func save() {
-        selectedPlaceName = "Some Place Name" // データを設定
-        selectedPlaceCoordinate = CLLocationCoordinate2D(latitude: 35.0, longitude: 139.0) // データを設定
+        selectedPlaceName = testSearchBar.text // データを設定
+        selectedPlaceCoordinate = testMapView.annotations.first?.coordinate // データを設定
         
         // ここで前の画面にデータを渡す
         delegate?.catchData(selectedPlaceName: selectedPlaceName, selectedPlaceCoordinate: selectedPlaceCoordinate)
