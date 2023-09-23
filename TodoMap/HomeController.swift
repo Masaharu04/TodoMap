@@ -48,19 +48,19 @@ class ViewController: UIViewController, MKMapViewDelegate {
             print("Reload function started")
             let mapTitle = item.maptitle
             let posCoordinates = item.posLatitude.components(separatedBy: ",") // 緯度と経度を分割
-           
+            print(posCoordinates)
+            var title = item.title
+            
+            //addPinToMap(latitude: 34.7022985, longitude: 135.4953492, title: title)
+           // addPinToMap(latitude: 35.6901339473, longitude: 139.6991500282, title: title)
             // 緯度と経度をDouble型に変換
-            if posCoordinates.count == 2, let posLatitude = Double(posCoordinates[0]), let posLongitude = Double(posCoordinates[1]) {
-                // タイトルを取得
-                let title = item.title
-                print("Reload function completed")
-                // ピンをマップに追加
-                addPinToMap(latitude: posLatitude, longitude: posLongitude, title: title)
-                
-                // ラベルに表示
-                testLabel.text = mapTitle
-               
-            }
+            if posCoordinates.count != 2 { return }
+            guard let posLatitude  = Double(posCoordinates[0]) else { return }
+            guard let posLongitude = Double(posCoordinates[1]) else { return }
+            print("posLongitude was not unwraped")
+            title = item.title
+            addPinToMap(latitude: posLatitude, longitude: posLongitude, title: title)
+            testLabel.text = mapTitle
         }
     }
     func read() -> [addMapItem] {
@@ -83,9 +83,7 @@ class ViewController: UIViewController, MKMapViewDelegate {
         // マップビューにピンを追加
         homeMapView.addAnnotation(annotation)
         
-        // ピンを表示する領域を設定（必要に応じて調整）
-        let region = MKCoordinateRegion(center: coordinate, span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05))
-        homeMapView.setRegion(region, animated: true)
+
     }
     
 }

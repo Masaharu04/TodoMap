@@ -88,9 +88,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
                                 <connections>
-                                    <segue destination="57C-jW-NXZ" kind="presentation" id="w5m-we-EsR"/>
+                                    <segue destination="57C-jW-NXZ" kind="presentation" modalPresentationStyle="fullScreen" id="w5m-we-EsR"/>
                                 </connections>
                             </button>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFi-JN-4Ci">
@@ -140,6 +140,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
+                        <outlet property="button" destination="NC6-vy-J4o" id="Vci-cb-fl4"/>
                         <outlet property="datePicker" destination="fFi-JN-4Ci" id="LZA-YK-glI"/>
                         <outlet property="ritememo" destination="7J8-2b-DGu" id="5oW-ud-j7v"/>
                         <outlet property="titleTextField" destination="eTY-Wm-7o9" id="8fN-xu-C6n"/>
@@ -154,7 +155,7 @@
             <objects>
                 <viewController id="57C-jW-NXZ" customClass="addMapViewController" customModule="TodoMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MGc-oe-5dB">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tq6-RM-qJY">
@@ -164,7 +165,7 @@
                                     <navigationItem title="行き先を追加しよう" id="jWB-c2-FUK">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="Fvd-HX-bhP">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="F5C-Nv-8rz">
-                                                <rect key="frame" x="16" y="10.666666666666664" width="87" height="35"/>
+                                                <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="戻る"/>
@@ -175,7 +176,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" style="plain" id="Fin-Gu-4XI">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="5Oj-Qi-VKS">
-                                                <rect key="frame" x="290" y="10.666666666666664" width="87" height="35"/>
+                                                <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="保存"/>
@@ -226,7 +227,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ab9-j6-N5A"/>
+        <segue reference="w5m-we-EsR"/>
+        <segue reference="bYa-Gm-1m1"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">

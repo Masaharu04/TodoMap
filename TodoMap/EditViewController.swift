@@ -17,6 +17,8 @@ class EditViewController: UIViewController, CatchProtocol {
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet var ritememo: UITextView!
     
+    @IBOutlet var button: UIButton!
+    
     @objc dynamic var id : Int = 0
     
     var selectedPlaceName: String?
@@ -27,6 +29,7 @@ class EditViewController: UIViewController, CatchProtocol {
    override func viewDidLoad() {
        super.viewDidLoad()
 
+       button.setTitle("行き先を追加しよう！", for: .normal)
        // DatePickerの設定
        datePicker.datePickerMode = .dateAndTime // 日付と時刻の選択を可能にします
        
@@ -40,6 +43,7 @@ class EditViewController: UIViewController, CatchProtocol {
     }
 
     @IBAction func save() {
+       
         let item = addMapItem()
         item.title = titleTextField.text ?? ""
        
@@ -59,7 +63,6 @@ class EditViewController: UIViewController, CatchProtocol {
         createItem(item: item) // データをRealmに保存
         self.dismiss(animated: true)
         
-        print(selectedPlaceName)
         
     }
 
@@ -80,7 +83,6 @@ class EditViewController: UIViewController, CatchProtocol {
         
         // 遷移先からデータをもらう関数の集合体
         destinationVC.delegate = self
-
     }
     
     // 画面遷移先からデータをもらう関数
@@ -90,6 +92,9 @@ class EditViewController: UIViewController, CatchProtocol {
     ){
         self.selectedPlaceName = selectedPlaceName
         self.selectedPlaceCoordinate = selectedPlaceCoordinate
+        
+        //ボタンに場所名を表示
+        button.setTitle(selectedPlaceName, for: .normal)
         
         print(selectedPlaceName ?? "")
         print("lat" + String(selectedPlaceCoordinate?.latitude ?? 0) + "lon" + String(selectedPlaceCoordinate?.longitude ?? 0))

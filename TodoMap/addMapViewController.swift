@@ -4,7 +4,7 @@
 //
 //  Created by 御前政喜 on 2023/09/18.
 //
-//マイン
+//
 import UIKit
 import MapKit
 import RealmSwift
@@ -31,7 +31,7 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     
     var testManager:CLLocationManager = CLLocationManager()
     
-    /// 前の画面にデータを送るためのやつ
+    /// 前の画面にデータを送る
     var delegate:CatchProtocol?
     
     override func viewDidLoad() {
@@ -53,8 +53,8 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     }
     
     @IBAction func save() {
-        selectedPlaceName = testSearchBar.text // データを設定
-        selectedPlaceCoordinate = testMapView.annotations.first?.coordinate // データを設定
+       // selectedPlaceName = testSearchBar.text // 場所名データを設定
+        selectedPlaceCoordinate = testMapView.annotations.first?.coordinate // 座標データを設定
         
         // ここで前の画面にデータを渡す
         delegate?.catchData(selectedPlaceName: selectedPlaceName, selectedPlaceCoordinate: selectedPlaceCoordinate)
@@ -100,7 +100,9 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
                 
                 // 選択された場所の名前をラベルに表示
                 self.posNameLabel.text = placemark.name
+                print(annotation.title)
             } else {
+                
                 // エラー
                 print(error)
             }
