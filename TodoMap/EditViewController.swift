@@ -26,6 +26,7 @@ class EditViewController: UIViewController, CatchProtocol {
     
     let realm = try! Realm()
        
+    
    override func viewDidLoad() {
        super.viewDidLoad()
 
@@ -43,29 +44,29 @@ class EditViewController: UIViewController, CatchProtocol {
     }
 
     @IBAction func save() {
-       
-        let item = addMapItem()
-        item.title = titleTextField.text ?? ""
-       
-        item.maptitle = selectedPlaceName ?? ""
-        if let coordinate = selectedPlaceCoordinate {
-                    // CLLocationCoordinate2D? を文字列に変換して代入
-                    let coordinateString = "\(coordinate.latitude), \(coordinate.longitude)"
-                    item.posLatitude = coordinateString
-                }
-        // UIDatePickerから日付を取得し、Stringに変換
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        item.date = dateFormatter.string(from: datePicker.date)
+          
+           let item = addMapItem()
+           item.title = titleTextField.text ?? ""
+          
+           item.maptitle = selectedPlaceName ?? ""
+           if let coordinate = selectedPlaceCoordinate {
+               // 緯度と経度を取得して保存
+               item.posLatitude = coordinate.latitude
+               item.posLongitude = coordinate.longitude
+           }
+           
+           // UIDatePickerから日付を取得し、Stringに変換
+           let dateFormatter = DateFormatter()
+           dateFormatter.dateFormat = "yyyy-MM-dd"
+           item.date = dateFormatter.string(from: datePicker.date)
+           
+           item.memo = ritememo.text ?? ""
+           
+           createItem(item: item) // データをRealmに保存
+           self.dismiss(animated: true)
         
-        item.memo = ritememo.text ?? ""
-        
-        createItem(item: item) // データをRealmに保存
-        self.dismiss(animated: true)
-        
-        
-    }
-
+        print(Realm.Configuration.defaultConfiguration.fileURL!)
+       }
 
     func createItem(item: addMapItem) {
         do {

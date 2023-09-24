@@ -54,7 +54,7 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     
     @IBAction func save() {
        // selectedPlaceName = testSearchBar.text // 場所名データを設定
-        selectedPlaceCoordinate = testMapView.annotations.first?.coordinate // 座標データを設定
+       // selectedPlaceCoordinate = testMapView.annotations.first?.coordinate // 座標データを設定
         
         // ここで前の画面にデータを渡す
         delegate?.catchData(selectedPlaceName: selectedPlaceName, selectedPlaceCoordinate: selectedPlaceCoordinate)
