@@ -58,11 +58,12 @@ class EditViewController: UIViewController, CatchProtocol {
            // UIDatePickerから日付を取得し、Stringに変換
            let dateFormatter = DateFormatter()
            dateFormatter.dateFormat = "yyyy-MM-dd"
-           item.date = dateFormatter.string(from: datePicker.date)
-           
-           item.memo = ritememo.text ?? ""
+            item.date = dateFormatter.string(from: datePicker.date)
+            item.time = datePicker.date
+            item.memo = ritememo.text ?? ""
            
            createItem(item: item) // データをRealmに保存
+        self.presentingViewController?.beginAppearanceTransition(true, animated: true)
            self.dismiss(animated: true)
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)

@@ -17,5 +17,6 @@ class addMapItem: Object {
     @Persisted var maptitle: String = ""
     @Persisted var date: String = ""
     @Persisted var memo: String = ""
+    @Persisted var time: Date
   
 }

@@ -47,18 +47,98 @@
                     </view>
                     <connections>
                         <outlet property="homeMapView" destination="AlW-pL-Z9j" id="LJv-KX-iQq"/>
+                        <segue destination="AnW-kT-9c9" kind="presentation" identifier="edit" modalPresentationStyle="fullScreen" modalTransitionStyle="crossDissolve" id="Qlh-li-mpx"/>
+                        <segue destination="xeh-GX-lXP" kind="presentation" identifier="show" id="BH3-Pf-8UT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="522"/>
+            <point key="canvasLocation" x="1063" y="183"/>
+        </scene>
+        <!--Up Date View Controller-->
+        <scene sceneID="qil-JT-IIJ">
+            <objects>
+                <viewController id="AnW-kT-9c9" customClass="upDateViewController" customModule="TodoMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="S1R-rt-e2g">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WUg-yM-qVo">
+                                <rect key="frame" x="35" y="108" width="324" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GvG-lW-S8D">
+                                <rect key="frame" x="35" y="205" width="324" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="2Nb-kc-fm3">
+                                <rect key="frame" x="17" y="277" width="361" height="64"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="メモ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qlx-3r-Yw8">
+                                <rect key="frame" x="35" y="391" width="324" height="427"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dqI-0J-ja6">
+                                <rect key="frame" x="0.0" y="39" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Title" id="XnS-0T-Z6f">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="hI5-d0-VGX">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="igg-Bo-Uhq">
+                                                <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                                <connections>
+                                                    <action selector="back" destination="OxF-Fq-oQP" eventType="touchUpInside" id="0GA-it-Idw"/>
+                                                    <action selector="back" destination="AnW-kT-9c9" eventType="touchUpInside" id="ccU-6x-L9X"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="fP7-XA-cTA">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="IlP-VO-nAA">
+                                                <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="保存"/>
+                                                <connections>
+                                                    <action selector="save" destination="OxF-Fq-oQP" eventType="touchUpInside" id="HfS-v6-adP"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="rjR-gP-4mx"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="datePicker" destination="2Nb-kc-fm3" id="oxB-Es-9Om"/>
+                        <outlet property="ritememo" destination="qlx-3r-Yw8" id="x5q-Do-tHJ"/>
+                        <outlet property="titleTextField" destination="WUg-yM-qVo" id="gKR-KR-hP1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kg3-m3-yEo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2160" y="-510"/>
         </scene>
         <!--Show View Controller-->
         <scene sceneID="AjK-cC-VF7">
             <objects>
                 <viewController id="xeh-GX-lXP" customClass="ShowViewController" customModule="TodoMap" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7SJ-rW-se9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <view key="view" contentMode="scaleToFill" restorationIdentifier="DetailViewController" id="7SJ-rW-se9" customClass="Sho">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="oBJ-kK-n0Y"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -67,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rG3-m9-g09" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4156" y="499"/>
+            <point key="canvasLocation" x="2160" y="183"/>
         </scene>
         <!--Edit View Controller-->
         <scene sceneID="C8m-XB-kmE">
@@ -93,7 +173,7 @@
                                     <segue destination="57C-jW-NXZ" kind="presentation" modalPresentationStyle="fullScreen" id="w5m-we-EsR"/>
                                 </connections>
                             </button>
-                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="fFi-JN-4Ci">
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="fFi-JN-4Ci">
                                 <rect key="frame" x="16" y="287" width="361" height="64"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             </datePicker>
@@ -148,7 +228,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zfi-rm-c07" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2344.2748091603053" y="521.83098591549299"/>
+            <point key="canvasLocation" x="2161" y="911"/>
         </scene>
         <!--Add Map View Controller-->
         <scene sceneID="paZ-CF-f40">
@@ -223,12 +303,85 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2X-rW-UuQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3402" y="499"/>
+            <point key="canvasLocation" x="3244" y="911"/>
+        </scene>
+        <!--Add Map View Controller-->
+        <scene sceneID="upX-F0-0hu">
+            <objects>
+                <viewController id="Lqo-8z-Ykz" customClass="addMapViewController" customModule="TodoMap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ctv-ZY-ZmY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VU6-V3-WNj">
+                                <rect key="frame" x="0.0" y="45" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="行き先を追加しよう" id="f6s-lX-2eL">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="K98-Co-t9h">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="qea-gP-4xM">
+                                                <rect key="frame" x="16" y="4.6666666666666679" width="87" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="戻る"/>
+                                                <connections>
+                                                    <action selector="back" destination="Lqo-8z-Ykz" eventType="touchUpInside" id="Dgd-L3-guJ"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" style="plain" id="mXk-9O-lQP">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="STg-Bx-RcO">
+                                                <rect key="frame" x="290" y="4.6666666666666679" width="87" height="35"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="保存"/>
+                                                <connections>
+                                                    <action selector="save" destination="Lqo-8z-Ykz" eventType="touchUpInside" id="TNe-wm-QBT"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZ0-4Q-PWp">
+                                <rect key="frame" x="0.0" y="89" width="393" height="763"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A3C-N1-1dy">
+                                <rect key="frame" x="0.0" y="139" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Lqo-8z-Ykz" id="c9D-vA-P7o"/>
+                                </connections>
+                            </searchBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FBg-im-fqM">
+                                <rect key="frame" x="27" y="100" width="338" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="CEG-U1-LsA"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="uNR-tX-kzJ"/>
+                    <connections>
+                        <outlet property="posNameLabel" destination="FBg-im-fqM" id="U4C-UM-X5A"/>
+                        <outlet property="testMapView" destination="uZ0-4Q-PWp" id="KkH-Hc-PhD"/>
+                        <outlet property="testSearchBar" destination="A3C-N1-1dy" id="zgl-6F-vqz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q6w-GO-2fe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3056" y="-511"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="w5m-we-EsR"/>
-        <segue reference="bYa-Gm-1m1"/>
+        <segue reference="ab9-j6-N5A"/>
     </inferredMetricsTieBreakers>
     <resources>
         <systemColor name="labelColor">
