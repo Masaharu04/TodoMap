@@ -38,11 +38,11 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let center = CLLocationCoordinate2DMake(35.690553, 139.699579)
+       // let center = CLLocationCoordinate2DMake(35.690553, 139.699579)
         let span = MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
         
-        let region = MKCoordinateRegion(center: center, span: span)
-        testMapView.setRegion(region, animated:true)
+      //  let region = MKCoordinateRegion(center: center, span: span)
+     //   testMapView.setRegion(region, animated:true)
         
         testSearchBar.delegate = self
         // Do any additional setup after loading the view.

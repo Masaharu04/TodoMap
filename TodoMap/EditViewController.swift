@@ -32,9 +32,7 @@ class EditViewController: UIViewController, CatchProtocol {
 
        button.setTitle("行き先を追加しよう！", for: .normal)
        // DatePickerの設定
-       datePicker.datePickerMode = .dateAndTime // 日付と時刻の選択を可能にします
        
-       datePicker.calendar = Calendar.current // 現在のカレンダーを使用します
        
        datePicker.locale = Locale(identifier: "ja_JP") // ロケールを日本に設定します（日本のカレンダー形式に合わせます）
    }

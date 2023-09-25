@@ -17,6 +17,7 @@ class ShowViewController: UIViewController {
         super.viewDidLoad()
         
         dateLabel.text = item?.date
+        titleLabel.text = item?.title
         subtitleLabel.text = item?.maptitle
         memoTextView.text = item?.memo
         
