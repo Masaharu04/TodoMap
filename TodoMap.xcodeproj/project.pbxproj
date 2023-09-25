@@ -83,7 +83,6 @@
 				D0885DAC2AB75F3800F9F2E1 /* LaunchScreen.storyboard */,
 				D0885DAF2AB75F3800F9F2E1 /* Info.plist */,
 				D0885DA52AB75F3600F9F2E1 /* HomeController.swift */,
-				D0885DD72AB8309400F9F2E1 /* ShowViewController.swift */,
 				D0885DD92AB830AA00F9F2E1 /* EditViewController.swift */,
 				D0885DDB2AB830BC00F9F2E1 /* addMapViewController.swift */,
 				D0885DFD2AB9EEED00F9F2E1 /* CustomPinView.swift */,
@@ -91,6 +90,7 @@
 				D0885E092ABA839600F9F2E1 /* addMapItem.swift */,
 				D07742F52AC05FE400727830 /* upDateViewController.swift */,
 				D07742F72AC192E600727830 /* upMapViewController.swift */,
+				D0885DD72AB8309400F9F2E1 /* ShowViewController.swift */,
 			);
 			path = TodoMap;
 			sourceTree = "<group>";

@@ -26,6 +26,7 @@ class addMapViewController: UIViewController ,UISearchBarDelegate{
     @IBOutlet weak var posNameLabel: UILabel!
 
     
+    
     var selectedPlaceName: String?
     var selectedPlaceCoordinate: CLLocationCoordinate2D?
     

@@ -57,7 +57,7 @@ class EditViewController: UIViewController, CatchProtocol {
            
            // UIDatePickerから日付を取得し、Stringに変換
            let dateFormatter = DateFormatter()
-           dateFormatter.dateFormat = "yyyy-MM-dd"
+           dateFormatter.dateFormat = "yyyy年MM月dd日"
             item.date = dateFormatter.string(from: datePicker.date)
             item.time = datePicker.date
             item.memo = ritememo.text ?? ""
@@ -100,6 +100,7 @@ class EditViewController: UIViewController, CatchProtocol {
         
         print(selectedPlaceName ?? "")
         print("lat" + String(selectedPlaceCoordinate?.latitude ?? 0) + "lon" + String(selectedPlaceCoordinate?.longitude ?? 0))
+        
         
     }
     

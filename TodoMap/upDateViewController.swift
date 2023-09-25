@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import MapKit
 
-class upDateViewController: UIViewController,CatchProtocol {
+class upDateViewController: UIViewController {
     
     @IBOutlet var titleTextField: UITextField!
     @IBOutlet var datePicker: UIDatePicker!
@@ -20,6 +20,7 @@ class upDateViewController: UIViewController,CatchProtocol {
     
     @objc dynamic var id : Int = 0
     
+
     var selectedPlaceName: String?
     var selectedPlaceCoordinate: CLLocationCoordinate2D?
     
@@ -30,9 +31,7 @@ class upDateViewController: UIViewController,CatchProtocol {
         super.viewDidLoad()
         
         
-        try! realm.write{
-            //item?.title = "yuruyuru"
-        }
+      
 
        //初期値の設定
         titleTextField.text = item?.title
@@ -50,7 +49,7 @@ class upDateViewController: UIViewController,CatchProtocol {
     }
     
     @IBAction func save() {
-          
+       /*
            let item = addMapItem()
            item.title = titleTextField.text ?? ""
           
@@ -73,40 +72,24 @@ class upDateViewController: UIViewController,CatchProtocol {
            self.dismiss(animated: true)
         
         print(Realm.Configuration.defaultConfiguration.fileURL!)
+        */
+        try! realm.write{
+           // item?.title = "yuruyuru"
+            item?.title = titleTextField.text ?? ""
+            // UIDatePickerから日付を取得し、Stringに変換
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy年MM月dd日"
+            item?.date = dateFormatter.string(from: datePicker.date)
+            item?.time = datePicker.date
+            item?.memo = ritememo.text ?? ""
+            
+        }
+
+        self.dismiss(animated: true)
        }
     
-    func createItem(item: addMapItem) {
-        do {
-            try realm.write {
-                realm.add(item)
-            }
-        } catch {
-            print("データの保存に失敗しました: \(error)")
-        }
-    }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! addMapViewController
-        
-        // 遷移先からデータをもらう関数の集合体
-        destinationVC.delegate = self
-    }
-    
-    // 画面遷移先からデータをもらう関数
-    func catchData(
-        selectedPlaceName: String?,
-        selectedPlaceCoordinate: CLLocationCoordinate2D?
-    ){
-        self.selectedPlaceName = selectedPlaceName
-        self.selectedPlaceCoordinate = selectedPlaceCoordinate
-        
-        //ボタンに場所名を表示
-        button.setTitle(selectedPlaceName, for: .normal)
-        
-        print(selectedPlaceName ?? "")
-        print("lat" + String(selectedPlaceCoordinate?.latitude ?? 0) + "lon" + String(selectedPlaceCoordinate?.longitude ?? 0))
-        
-    }
+
     /*
     // MARK: - Navigation
 

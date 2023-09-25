@@ -18,6 +18,9 @@ class ViewController: UIViewController, MKMapViewDelegate {
     let realm = try! Realm()
     var items: [addMapItem] = []
     
+    var updateItem: addMapItem?
+    var showItem: addMapItem?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,10 +31,10 @@ class ViewController: UIViewController, MKMapViewDelegate {
         
         // ロングプレス（長押し）ジェスチャーを追加
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-               homeMapView.addGestureRecognizer(longPressGesture)
+        homeMapView.addGestureRecognizer(longPressGesture)
     }
     
-func reload() {
+    func reload() {
         // マップ上の既存のピンをすべて削除
         homeMapView.removeAnnotations(homeMapView.annotations)
         
@@ -48,7 +51,7 @@ func reload() {
             // ピンをマップに追加
             addPinToMap(latitude: posLatitude, longitude: posLongitude, title: mapTitle, date: date)
         }
-  
+        
     }
     
     func read() -> [addMapItem] {
@@ -71,8 +74,8 @@ func reload() {
         annotation.coordinate = coordinate
         annotation.title = date // mapTitleを設定
         annotation.subtitle = title // dateを設定
-       
-      
+        
+        
         // マップビューにピンを追t加
         homeMapView.addAnnotation(annotation)
     }
@@ -80,6 +83,9 @@ func reload() {
         if segue.identifier == "edit"{
             let vc = segue.destination as! upDateViewController
             vc.item = updateItem
+        }else if segue.identifier == "show"{
+            let vc = segue.destination as! ShowViewController
+            vc.item = showItem
         }
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -87,64 +93,8 @@ func reload() {
         reload()
     }
     
-    var updateItem: addMapItem?
-    var showIrem: addMapItem?
-    /*
-    //ピンのアラート
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        // ピンが選択された時の処理
-        let alertController = UIAlertController(title: "Options", message: nil, preferredStyle: .actionSheet)
-        
-        
-        let showAction = UIAlertAction(title: "Show", style: .default) { [weak self] (_) in
-            if let selectedAnnotation = view.annotation as? MKPointAnnotation {
-                if let itemToUpdate = self?.items.first(where: { $0.title == selectedAnnotation.subtitle }) {
-                    self?.showIrem = itemToUpdate
-                    self?.performSegue(withIdentifier: "show", sender: nil)
-                }
-            }
-        }
-        
-        // 編集オプションを追加
-        let editAction = UIAlertAction(title: "Edit", style: .default) { [weak self] (_) in
-            if let selectedAnnotation = view.annotation as? MKPointAnnotation {
-                if let itemToUpdate = self?.items.first(where: { $0.title == selectedAnnotation.subtitle }) {
-                    self?.updateItem = itemToUpdate
-                    self?.performSegue(withIdentifier: "edit", sender: nil)
-                }
-            }
-        }
-        
-        // 削除オプションを追加
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] (_) in
-            if let selectedAnnotation = view.annotation as? MKPointAnnotation {
-                // マップからピンを削除
-                mapView.removeAnnotation(selectedAnnotation)
-                
-                // Realmからデータを削除
-                if let itemToDelete = self?.items.first(where: { $0.title == selectedAnnotation.subtitle }) {
-                    do {
-                        try self?.realm.write {
-                            self?.realm.delete(itemToDelete)
-                        }
-                    } catch {
-                        print("Error deleting item from Realm: \(error.localizedDescription)")
-                    }
-                }
-            }
-        }
-        
-        // キャンセルオプションを追加
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        
-        alertController.addAction(showAction)
-        alertController.addAction(editAction)
-        alertController.addAction(deleteAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }*/
-
+    
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil // ユーザーの現在位置のピンはカスタマイズしない
@@ -174,8 +124,8 @@ func reload() {
                 
                 let showAction = UIAlertAction(title: "Show", style: .default) { [weak self] (_) in
                     if let selectedAnnotation = view.annotation as? MKPointAnnotation {
-                        if let itemToUpdate = self?.items.first(where: { $0.title == selectedAnnotation.subtitle }) {
-                            self?.showIrem = itemToUpdate
+                        if let itemShow = self?.items.first(where: { $0.title == selectedAnnotation.subtitle }) {
+                            self?.showItem = itemShow
                             self?.performSegue(withIdentifier: "show", sender: nil)
                         }
                     }
@@ -219,9 +169,10 @@ func reload() {
                 alertController.addAction(cancelAction)
                 
                 present(alertController, animated: true, completion: nil)
+                
             }
         }
     }
-
+    
     
 }

@@ -11,6 +11,7 @@ import RealmSwift
 class addMapItem: Object {
     
     @objc dynamic var id : String = NSUUID().uuidString
+ //   @Persisted(primaryKey: true)
     @Persisted var title: String = ""
     @Persisted var posLatitude: Double = 0.0 // Double型に変更
     @Persisted var posLongitude: Double = 0.0 // Double型に変更
@@ -19,4 +20,6 @@ class addMapItem: Object {
     @Persisted var memo: String = ""
     @Persisted var time: Date
   
+    
+    
 }
