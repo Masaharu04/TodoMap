@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D07742F62AC05FE400727830 /* upDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07742F52AC05FE400727830 /* upDateViewController.swift */; };
 		D07742F82AC192E600727830 /* upMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D07742F72AC192E600727830 /* upMapViewController.swift */; };
+		D07742FE2AC1F3AD00727830 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = D07742FD2AC1F3AD00727830 /* icon.png */; };
+		D07743022AC2DDA300727830 /* Group 10.png in Resources */ = {isa = PBXBuildFile; fileRef = D07743012AC2DDA300727830 /* Group 10.png */; };
 		D0885DA22AB75F3600F9F2E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DA12AB75F3600F9F2E1 /* AppDelegate.swift */; };
 		D0885DA42AB75F3600F9F2E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DA32AB75F3600F9F2E1 /* SceneDelegate.swift */; };
 		D0885DA62AB75F3600F9F2E1 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0885DA52AB75F3600F9F2E1 /* HomeController.swift */; };
@@ -28,6 +30,8 @@
 /* Begin PBXFileReference section */
 		D07742F52AC05FE400727830 /* upDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upDateViewController.swift; sourceTree = "<group>"; };
 		D07742F72AC192E600727830 /* upMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = upMapViewController.swift; sourceTree = "<group>"; };
+		D07742FD2AC1F3AD00727830 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../../../../Desktop/icon.png; sourceTree = "<group>"; };
+		D07743012AC2DDA300727830 /* Group 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Group 10.png"; path = "../../../Group 10.png"; sourceTree = "<group>"; };
 		D0885D9E2AB75F3600F9F2E1 /* TodoMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0885DA12AB75F3600F9F2E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D0885DA32AB75F3600F9F2E1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +85,8 @@
 				D0885DA72AB75F3600F9F2E1 /* Main.storyboard */,
 				D0885DAA2AB75F3800F9F2E1 /* Assets.xcassets */,
 				D0885DAC2AB75F3800F9F2E1 /* LaunchScreen.storyboard */,
+				D07743012AC2DDA300727830 /* Group 10.png */,
+				D07742FD2AC1F3AD00727830 /* icon.png */,
 				D0885DAF2AB75F3800F9F2E1 /* Info.plist */,
 				D0885DA52AB75F3600F9F2E1 /* HomeController.swift */,
 				D0885DD92AB830AA00F9F2E1 /* EditViewController.swift */,
@@ -161,7 +167,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				D0885DAE2AB75F3800F9F2E1 /* LaunchScreen.storyboard in Resources */,
+				D07742FE2AC1F3AD00727830 /* icon.png in Resources */,
 				D0885DAB2AB75F3800F9F2E1 /* Assets.xcassets in Resources */,
+				D07743022AC2DDA300727830 /* Group 10.png in Resources */,
 				D0885DA92AB75F3600F9F2E1 /* Main.storyboard in Resources */,
 				D0885E032AB9EF4E00F9F2E1 /* CustomPinView.xib in Resources */,
 			);

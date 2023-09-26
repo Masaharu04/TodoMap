@@ -62,8 +62,10 @@ class EditViewController: UIViewController, CatchProtocol {
            
            createItem(item: item) // データをRealmに保存
         self.presentingViewController?.beginAppearanceTransition(true, animated: true)
-           self.dismiss(animated: true)
+           //self.dismiss(animated: true)
         
+        self.navigationController?.popViewController(animated: true)
+
         print(Realm.Configuration.defaultConfiguration.fileURL!)
        }
 
