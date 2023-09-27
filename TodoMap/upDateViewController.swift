@@ -84,8 +84,8 @@ class upDateViewController: UIViewController {
             item?.memo = ritememo.text ?? ""
             
         }
-
-        self.dismiss(animated: true)
+        self.navigationController?.popViewController(animated: true)
+        //self.dismiss(animated: true)
        }
     
     
